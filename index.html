@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <!-- Link Css -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam&family=Nova+Mono&family=Oswald:wght@300&family=Poppins&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <section id="hero" class="hero">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="item-text">
+                        <h1>Andrianto</h1>
+                        <h4>Energiner <span id="jobTitle"></span></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio temporibus eveniet
+                            quibusdam
+                            aut,
+                            recusandae totam.</p>
+                        <input type="text" id="nameInput" placeholder="Insert your name here...">
+                        <div class="d-flex">
+                            <a href="./assets/components/home.html" id="aboutLink" class="hidden">
+                                <button class="btn btn-round text-white" id="getLinkButton">Let's Go!</button>
+                            </a>
+                        </div>
+                        <!-- <button id="aboutLink" onclick="submitData()" class="hidden btn btn-round text-light">Let's Go</button> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="item-bg">
+                        <img src="./assets/img/bg-profil.png" width="100" alt="">
+                        <div class="item-profil">
+                            <img src="./assets/img/proifl.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // function submitData(){
+        //     var nama = document.getElementById("nameInput").value;
+
+        //     alert(nama);
+        // }
+
+         const nameInput = document.getElementById('nameInput');
+        const aboutLink = document.getElementById('aboutLink');
+        const getLinkButton = document.getElementById('getLinkButton');
+
+        getLinkButton.addEventListener("click", function(e) {
+            const inputName = nameInput.value;
+            if (inputName.trim() === '') {
+                e.preventDefault();
+                alert('Silakan isi nama Anda terlebih dahulu.');
+            } else {
+                // Menambahkan nilai input ke URL
+                aboutLink.href = `./assets/components/home.html?name=${encodeURIComponent(inputName)}`;
+            }
+        });
+
+        nameInput.addEventListener('input', function () {
+            if (nameInput.value.trim() !== '') {
+                // Jika input tidak kosong, tampilkan tombol dan link
+                aboutLink.classList.remove('hidden');
+            } else {
+                // Jika input kosong, sembunyikan tombol dan link
+                aboutLink.classList.add('hidden');
+            }
+        });
+
+        const jobTitles = ["Web Developer", "Full Stack Developer", "Mobile Developer", "UI/UX Designer"];
+        const jobTitleElement = document.getElementById("jobTitle");
+        let currentIndex = 0;
+        let charIndex = 0;
+        let isTyping = true;
+
+        function typeText() {
+            const currentJobTitle = jobTitles[currentIndex];
+            const currentText = currentJobTitle.slice(0, charIndex);
+            jobTitleElement.textContent = currentText;
+
+            if (charIndex < currentJobTitle.length && isTyping) {
+                charIndex++;
+                setTimeout(typeText, 200); // Mengatur kecepatan pengetikan
+            } else {
+                isTyping = false;
+                setTimeout(eraseText, 1000); // Tunggu 1 detik sebelum menghapus teks
+            }
+        }
+
+        function eraseText() {
+            const currentJobTitle = jobTitles[currentIndex];
+            const currentText = currentJobTitle.slice(0, charIndex);
+            jobTitleElement.textContent = currentText;
+
+            if (charIndex > 0 && !isTyping) {
+                charIndex--;
+                setTimeout(eraseText, 100); // Mengatur kecepatan penghapusan
+            } else {
+                isTyping = true;
+                currentIndex = (currentIndex + 1) % jobTitles.length;
+                setTimeout(typeText, 1000); // Tunggu 1 detik sebelum mulai mengetik teks berikutnya
+            }
+        }
+
+        // Mulai mengetik pertama kalinya
+        typeText();
+
+    </script>
+    <script>
+        // const getLinkButton = document.getElementById('getLinkButton');
+
+
+    </script>
+    <!-- partiker js -->
+    <script src="/assets/js/particles.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- <script src="/assets/min.js/min.js"></script> -->
+
+
+
+</body>
+
+</html>

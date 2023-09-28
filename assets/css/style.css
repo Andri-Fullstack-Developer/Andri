@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Nova+Mono&family=Oswald:wght@300&family=Poppins&display=swap");
+
+:root {
+  --blue-gray: #6699cc;
+  --light-gray: #e1e1e1;
+  --drak-gray: #0a0a0a;
+
+  /* font */
+  --kalam: "Kalam", cursive;
+  --nova-mono: "Nova Mono", monospace;
+  --oswald: "Oswald" . san-serif;
+  --poppins: "Poppins", san-serif;
+}
+
+body {
+  font-family: var(--poppins);
+  font-size: 2rem;
+}
+
+.hero {
+  background: var(--drak-gray);
+  position: relative;
+  color: var(--light-gray);
+  min-height: 100vh;
+  z-index: 6;
+}
+
+.hero .item-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero .item-text h1 {
+  font-family: var(--kalam);
+  font-size: 3rem;
+  font-weight: 500;
+}
+.hero .item-text h4,
+span {
+  margin-top: 0.5rem;
+  font-family: var(--oswald);
+  font-size: 1.6rem;
+  font-size: 100;
+}
+#jobTitle {
+  font-size: 1.5rem;
+}
+.hero .item-text p {
+  font-family: var(--nova-mono);
+  margin-top: 0.4rem !important;
+}
+
+.hero .item-text input[type="text"] {
+  margin-top: 1rem;
+  background: none;
+  color: var(--light-gray);
+  border: 1px solid black;
+  border-top: none; /* Menghilangkan border atas */
+  transition: border-color 0.3s;
+  z-index: 2;
+}
+
+.hero .item-text input[type="text"]:focus {
+  border-top: none; /* Menghilangkan border atas saat elemen input mendapatkan fokus */
+  border-bottom: 2.5px solid var(--blue-gray) !important; /* Menyalakan border bawah */
+  border-left: none;
+  border-right: none;
+  outline: none;
+  color: var(--light-gray);
+}
+.hidden {
+  display: none;
+}
+
+.hidden .btn {
+  font-size: 0.7rem !important;
+  margin-top: 1.5rem;
+  border: 1px solid var(--blue-gray);
+}
+
+.btn-round {
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--blue-gray) !important;
+  border-radius: 50% !important;
+  margin-top: 1.5rem !important;
+  font-size: 0.7rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.btn-round:hover {
+  background: var(--blue-gray);
+  animation: gelombang 0.3s;
+}
+
+@keyframes gelombang {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.hero .item-bg img {
+  width: 130%;
+  height: 100vh;
+  left: 55%;
+}
+
+.hero .item-profil img {
+  width: 30%;
+  height: 90vh;
+  position: absolute;
+  top: 65px;
+  left: 64%;
+  z-index: 2;
+}
+
+
+#particles-js {
+  /* background: var(--drak-gray); */
+  width: 100%;
+  height: 99vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Untuk memastikan partikel berada di belakang konten lain */
+}
+

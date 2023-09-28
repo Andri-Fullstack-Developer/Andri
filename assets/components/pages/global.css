@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Nova+Mono&family=Oswald:wght@300&family=Poppins&display=swap");
+
+:root {
+  --blue-gray: #6699cc;
+  --light-gray: #e1e1e1;
+  --drak-gray: #0a0a0a;
+
+  /* font */
+  --kalam: "Kalam", cursive;
+  --nova-mono: "Nova Mono", monospace;
+  --oswald: "Oswald" . san-serif;
+  --poppins: "Poppins", san-serif;
+}
+
+body {
+  font-family: var(--poppins);
+  font-size: 2rem;
+  box-sizing: border-box;
+}
+
+/* About */
+.about{
+    min-height: 100vh;
+    background: #0a0a0a;
+
+}
+
+/* Services */
+
+/* Portofolio */
+
+/* Galery */
+
+/* Sertifikat */
+
+/* Contact */
+
+
+/* Media Query */
